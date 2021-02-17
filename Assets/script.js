@@ -18,8 +18,8 @@ $(document).ready(function() {
     $("#search-button").on("click", function(event) {
         event.preventDefault();
         var searchedCity = $("#city-input").val().trim();
-        var queryURL1 = "http://api.openweathermap.org/data/2.5/weather?q="+searchedCity+"&units=imperial&appid=63560d8cf9e10b4b633264289102c5c9";
-        var queryURL2 = "http://api.openweathermap.org/data/2.5/forecast?q="+searchedCity+"&units=imperial&appid=63560d8cf9e10b4b633264289102c5c9";
+        var queryURL1 = "https://api.openweathermap.org/data/2.5/weather?q="+searchedCity+"&units=imperial&appid=63560d8cf9e10b4b633264289102c5c9";
+        var queryURL2 = "https://api.openweathermap.org/data/2.5/forecast?q="+searchedCity+"&units=imperial&appid=63560d8cf9e10b4b633264289102c5c9";
         if(searchedCity != "") {
             $.ajax({
                 url: queryURL1,
@@ -120,7 +120,7 @@ $(document).ready(function() {
 
 
 $.ajax({
-    url: "http://api.openweathermap.org/data/2.5/forecast/?q=Denver&appid=63560d8cf9e10b4b633264289102c5c9",
+    url: "https://api.openweathermap.org/data/2.5/forecast/?q=Denver&appid=63560d8cf9e10b4b633264289102c5c9",
     method: "GET"
     }).then(function (response) 
     {
