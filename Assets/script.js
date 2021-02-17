@@ -1,19 +1,3 @@
-    //  e385e7158105fe8110b0408de5b4c2cd
-// console.log("I am connected")
-// fetch(
-//     // Explain each parameter in comments below.
-//     'http://api.openweathermap.org/data/2.5/weather?q=Denver&appid=7ba67ac190f85fdba2e2dc6b9d32e93c',
-//   )
-//     .then(function (response) {
-//       console.log(response)
-//     })
-    // .then(function (data) {
-    //   console.log(data);
-    // })
-
-
-
-
 $(document).ready(function() {
     $("#search-button").on("click", function(event) {
         event.preventDefault();
@@ -119,13 +103,13 @@ $(document).ready(function() {
 })
 
 
-$.ajax({
-    url: "https://api.openweathermap.org/data/2.5/forecast/?q=Denver&appid=63560d8cf9e10b4b633264289102c5c9",
-    method: "GET"
-    }).then(function (response) 
-    {
-        console.log(response)
-        var dates = dayjs().add(1, "day").format("MMM. D");
-        console.log(dates)
+// $.ajax({
+//     url: "https://api.openweathermap.org/data/2.5/forecast/?q=Denver&appid=63560d8cf9e10b4b633264289102c5c9",
+//     method: "GET"
+//     }).then(function (response) 
+//     {
+//         console.log(response)
+//         var dates = dayjs().add(1, "day").format("MMM. D");
+//         console.log(dates)
 
-});
+// });
