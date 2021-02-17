@@ -24,7 +24,7 @@ $(document).ready(function() {
             $.ajax({
                 url: queryURL1,
                 method: "GET",
-                datatype: "jsonp",
+                datatype: "json",
                 success: function(data) {
                     var name = displayName(data);
                     $("#city-name").html(name);
@@ -37,7 +37,7 @@ $(document).ready(function() {
             $.ajax({
                 url: queryURL2,
                 method: "GET",
-                datatype:"jsonp",
+                datatype:"json",
                 success: function(forecast) {
                     var forecastStats1 = displayForecast1(forecast);
                     $("#forecast-stats1").html(forecastStats1);
