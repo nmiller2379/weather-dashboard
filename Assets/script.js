@@ -17,9 +17,9 @@
 $(document).ready(function() {
     $("#search-button").on("click", function(event) {
         event.preventDefault();
-        var searchedCity = $("#city-input").val().trim().toLowerCase();
+        var searchedCity = $("#city-input").val().trim();
         var queryURL1 = "http://api.openweathermap.org/data/2.5/weather?q="+searchedCity+"&units=imperial&appid=63560d8cf9e10b4b633264289102c5c9";
-        var queryURL2 = "http://api.openweathermap.org/data/2.5/forecast?q="+searchedCity+"&units=imperial&appid=63560d8cf9e10b4b633264289102c5c9"
+        var queryURL2 = "http://api.openweathermap.org/data/2.5/forecast?q="+searchedCity+"&units=imperial&appid=63560d8cf9e10b4b633264289102c5c9";
         if(searchedCity != "") {
             $.ajax({
                 url: queryURL1,
@@ -50,8 +50,21 @@ $(document).ready(function() {
                 }
             })
         } else {
-            $("#error").html("Please enter a city.");
+            $("error").html("Please enter a city.");
         }
+
+        
+        var populateCityList = displayCityList(searchedCity);
+        $(".city-list").append(populateCityList);
+
+        function displayCityList() {
+            return "<button class='list-group-item' 'list-group-item-action'>" + searchedCity + "</button>"
+        }
+
+        $("#city-input").val("")
+    
+
+        
         
         // console.log(searchedCity);
         // console.log(queryURL1);
@@ -79,37 +92,35 @@ $(document).ready(function() {
     function displayForecast1(forecast) {
         var date1 = dayjs().add(1, "day").format("MMM. D");
         return "<h6>" + date1 + "</h6>" +  
-               "<p><strong> High</strong>: " + forecast.list[0].main.temp_max + " degrees</p>" +
-               "<p><strong> Low</strong>: " + forecast.list[0].main.temp_min + " degrees</p>" +
+               "<p><strong> Temp</strong>: " + forecast.list[0].main.temp + " degrees</p>" +
                "<p><strong> Forecast:</strong> " + forecast.list[0].weather[0].description + "</p>"  
     };
     function displayForecast2(forecast) {
         var date2 = dayjs().add(2, "day").format("MMM. D");
         return "<h6>" + date2 + "</h6>" +  
-               "<p><strong> High</strong>: " + forecast.list[1].main.temp_max + " degrees</p>" +
-               "<p><strong> Low</strong>: " + forecast.list[1].main.temp_min + " degrees</p>" +
+               "<p><strong> Temp</strong>: " + forecast.list[1].main.temp + " degrees</p>" +
                "<p><strong> Forecast:</strong> " + forecast.list[1].weather[0].description + "</p>"  
     };
     function displayForecast3(forecast) {
         var date2 = dayjs().add(3, "day").format("MMM. D");
         return "<h6>" + date2 + "</h6>" +  
-               "<p><strong> High</strong>: " + forecast.list[2].main.temp_max + " degrees</p>" +
-               "<p><strong> Low</strong>: " + forecast.list[2].main.temp_min + " degrees</p>" +
+               "<p><strong> Temp</strong>: " + forecast.list[2].main.temp + " degrees</p>" +
                "<p><strong> Forecast:</strong> " + forecast.list[2].weather[0].description + "</p>"  
     };
     function displayForecast4(forecast) {
         var date2 = dayjs().add(4, "day").format("MMM. D");
         return "<h6>" + date2 + "</h6>" +  
-               "<p><strong> High</strong>: " + forecast.list[3].main.temp_max + " degrees</p>" +
-               "<p><strong> Low</strong>: " + forecast.list[3].main.temp_min + " degrees</p>" +
+               "<p><strong> Temp</strong>: " + forecast.list[3].main.temp + " degrees</p>" +
                "<p><strong> Forecast:</strong> " + forecast.list[3].weather[0].description + "</p>"  
     };
+    
+
     
 })
 
 
 $.ajax({
-    url: "http://api.openweathermap.org/data/2.5/forecast?q=Denver&appid=63560d8cf9e10b4b633264289102c5c9",
+    url: "http://api.openweathermap.org/data/2.5/forecast/?q=Denver&appid=63560d8cf9e10b4b633264289102c5c9",
     method: "GET"
     }).then(function (response) 
     {
