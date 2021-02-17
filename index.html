@@ -48,9 +48,10 @@
         <div class="card" style="width: 22rem;">
         <div class="card-body">
           <h6>Search for a city:</h6>
+          <span id="error"></span>
           <form class="form-inline">
             <div class="form-group">
-              <input type="text"
+              <input type="text" id="city-input" 
               placeholder="City name"
               autocomplete="off"
               class="form-control text muted form rounded shadow-sm">
@@ -71,46 +72,41 @@
               <span id="city-name"></span>
               <span id="current-icon"></span>
             </div>
-            <p class="card-text" id="current-temp"></p>
-            <p class="card-text" id="current-humidity"></p>
-            <p class="card-text" id="current-wind"></p>
-            <p class="card-text" id="current-uv"></p>
+            <div class="card-text" id="weather-stats">
+              
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-9" id="forecast-weather">
-            <h4>5-day Forecast</h4>
+            <h4>4-day Forecast</h4>
             <div id="forecast-cards">
               <div class="card forecast">
                 <div class="card-body" id="forecast1">
                   <span class="card-title" id="forecast-date1"></span>
                   <span id="forecast-icon1"></span>
-                  <p class="card-text" id="forecast-temp1"></p>
-                  <p class="card-text" id="forecast-humidity1"></p>
+                  <div class="card-text" id="forecast-stats1"></div>
                 </div>
               </div>
               <div class="card forecast">
                 <div class="card-body" id="forecast2">
                   <span class="card-title" id="forecast-date2"></span>
                   <span id="forecast-icon2"></span>
-                  <p class="card-text" id="forecast-temp2"></p>
-                  <p class="card-text" id="forecast-humidity2"></p>
+                  <div class="card-text" id="forecast-stats2"></div>
+                </div>
+              </div>
+              <div class="card forecast">
+                <div class="card-body" id="forecast3">
+                  <span class="card-title" id="forecast-date3"></span>
+                  <span id="forecast-icon4"></span>
+                  <div class="card-text" id="forecast-stats3"></div>
                 </div>
               </div>
               <div class="card forecast">
                 <div class="card-body" id="forecast4">
                   <span class="card-title" id="forecast-date4"></span>
-                  <span id="forecast-icon4"></span>
-                  <p class="card-text" id="forecast-temp4"></p>
-                  <p class="card-text" id="forecast-humidity4"></p>
-                </div>
-              </div>
-              <div class="card-forecast">
-                <div class="card-body" id="forecast5">
-                  <span class="card-title" id="forecast-date5"></span>
                   <span id="forecast-icon5"></span>
-                  <p class="card-text" id="forecast-temp5"></p>
-                  <p class="card-text" id="forecast-humidity5"></p>
+                  <div class="card-text" id="forecast-stats4"></div>
                 </div>
               </div>
             </div>
@@ -120,9 +116,12 @@
     </div>
   </div>
 
+  
+
 
 
     <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="Assets/script.js"></script>  
 </body>
 </html>
